@@ -1,13 +1,21 @@
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet, ScrollView } from "react-native";
+import Divider from "../components/Home/Divider";
 import Header from "../components/Home/Header";
-import Post from "../components/Home/Post";
-import Stories from "../components/Home/Stories";
+import Posts from "../components/Home/Posts/Posts";
+import Stories from "../components/Home/Stories/Stories";
 const HomeScreen = () => {
+  const currUser = {
+    image: "https://xsgames.co/randomusers/assets/avatars/male/74.jpg",
+    username: "tilwani03",
+  };
   return (
     <SafeAreaView style={styles.container}>
       <Header />
-      <Stories />
-      <Post />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Stories currUser={currUser} />
+        <Divider />
+        <Posts currUser={currUser} />
+      </ScrollView>
     </SafeAreaView>
   );
 };
